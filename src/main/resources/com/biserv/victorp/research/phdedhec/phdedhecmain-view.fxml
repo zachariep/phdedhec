@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.biserv.victorp.research.phdedhec.PhDEDHECController">
+   <children>
+      <MenuBar prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="configProperty" mnemonicParsing="false" onAction="#onActionLoadConfigProperties" text="Load Config" />
+                  <MenuItem fx:id="dataProperty" mnemonicParsing="false" onAction="#onActionLoadDataProperties" text="Load Data" />
+                  <MenuItem fx:id="export" mnemonicParsing="false" onAction="#onActionExportProgram" text="Export" />
+              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#onActionCloseProgram" text="Close" />
+                  <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#onActionExitProgram" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Execute">
+            <items>
+              <MenuItem fx:id="birthRecords" mnemonicParsing="false" onAction="#parseBirthRecords" text="Parse Birth Record" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#aboutProgram" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.3" layoutX="6.0" layoutY="26.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="370.4" prefWidth="176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <ListView fx:id="configPropListView" layoutX="-26.0" onEditCancel="#onEditCancelConfigPropListView" onEditCommit="#onEditCommitConfigPropListView" onEditStart="#onEditStartConfigPropListView" prefHeight="181.6" prefWidth="174.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                        <MenuItem fx:id="showConfigPropItem" mnemonicParsing="false" onAction="#OnActionShowConfigPropItem" text="Show Config Property Item" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </ListView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <SplitPane dividerPositions="0.8344444444444445" orientation="VERTICAL" prefHeight="181.6" prefWidth="174.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <ListView fx:id="dataPropListView" onEditCancel="#onEditCancelDataPropListView" onEditCommit="#onEditCommitDataPropListView" onEditStart="#onEditStartDataPropListView" prefHeight="147.2" prefWidth="172.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <contextMenu>
+                                                <ContextMenu>
+                                                  <items>
+                                                    <MenuItem fx:id="showDataPropItem" mnemonicParsing="false" onAction="#OnActionShowDataPropItem" text="Show Data Property Item" />
+                                                  </items>
+                                                </ContextMenu>
+                                             </contextMenu>
+                                          </ListView>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <HBox fx:id="progressHBox" alignment="BOTTOM_CENTER" prefHeight="27.2" prefWidth="172.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.7" layoutX="14.0" layoutY="14.0" orientation="VERTICAL" prefHeight="370.4" prefWidth="416.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="resultTableView" layoutX="14.0" prefHeight="255.2" prefWidth="415.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                </columns>
+                                 <contextMenu>
+                                    <ContextMenu fx:id="resultContextMenu">
+                                      <items>
+                                        <MenuItem fx:id="showResultItem" mnemonicParsing="false" onAction="#onActionShowResultItem" text="Show Result Item" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
