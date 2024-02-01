@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="MyApp" packages="">
+
+    <Properties>
+        <Property name="log-path">C:/dev/apps/logs/phdedhec</Property>
+    </Properties>
+
+    <Appenders>
+
+        <RollingFile name="DebuggerLogger" fileName="${log-path}/phdedhec.${date:yyyy-MM-dd_hh-mm-ss}.log" filePattern="${log-path}/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d{DEFAULT} %p %c{6} [%t][%M] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <Root level="ALL">
+            <AppenderRef ref="DebuggerLogger"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
